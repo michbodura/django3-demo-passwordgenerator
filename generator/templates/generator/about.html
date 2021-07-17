@@ -1,0 +1,9 @@
+<h1>Hejo jestem w about</h1>
+
+<button onClick="goHome()">Wróć</button>
+
+<script type="text/javascript">
+    function goHome() {
+        window.location.replace("{% url 'home' %}");
+    }  
+</script>
