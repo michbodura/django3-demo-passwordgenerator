@@ -7,8 +7,6 @@ import random
 def home(request):
     return render(request, 'generator/home.html',{'password':'Cytadela'})
 def password(request):
-    thepassword = ''
-
     characters = list('abcdefghijklmnopqrstuvwxyz')
 
     if request.GET.get('uppercase'):
@@ -20,11 +18,7 @@ def password(request):
 
     length = int(request.GET.get('length',14))
 
-    for x in range(length):
-        thepassword += random.choice(characters)
-
-
-
+    thepassword = ''.join(random.choice(characters) for _ in range(length))
     return render(request, 'generator/password.html',{'password':thepassword})
 
 def about(request):
